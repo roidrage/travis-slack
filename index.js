@@ -13,7 +13,6 @@ app.get('/', function(request, response) {
 
 app.post("/slack-request", function(httpRequest, httpResponse) {
   var cmdPattern = /build ([^ ]+) on branch ([^ ]+)/i;
-  console.log(httpRequest.body.text);
   if (httpRequest.body.text) {
     var command = cmdPattern.exec(httpRequest.body.text);
     var repoName = command[1];
@@ -37,8 +36,7 @@ app.post("/slack-request", function(httpRequest, httpResponse) {
         }
       }
     }, function(error, res, body) {
-      console.log(res.statusCode);
-      if (!error && res.statusCode == 200) {
+      if (!error && res.statusCode == 202) {
         console.log(body);
         httpResponse.send("Started build for " + repoName + " on branch " + branch);
       }
