@@ -12,7 +12,8 @@
   "dependencies": {
     "ejs": "2.4.1",
     "express": "4.13.3",
-    "body-parser": "1.15.1"
+    "body-parser": "1.15.1",
+    "request": "2.72.0"
   },
   "repository": {
     "type": "git",
