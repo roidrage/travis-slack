@@ -37,6 +37,7 @@ app.post("/slack-request", function(httpRequest, httpResponse) {
         }
       }
     }, function(error, res, body) {
+      console.log(res.statusCode);
       if (!error && res.statusCode == 200) {
         console.log(body);
         httpResponse.send("Started build for " + repoName + " on branch " + branch);
