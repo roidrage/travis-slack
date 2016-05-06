@@ -1,0 +1,26 @@
+{
+  "name": "travis-slack",
+  "version": "0.0.1",
+  "description": "A bot for Slack that talks to Travis CI and back again.",
+  "engines": {
+    "node": "6.0.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ejs": "2.4.1",
+    "express": "4.13.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/roidrage/travis-slack"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}
