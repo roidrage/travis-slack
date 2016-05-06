@@ -28,6 +28,7 @@ app.post("/slack-request", function(httpRequest, httpResponse) {
       },
       json: true,
       body: {
+        message: 'Slack-triggered build by ' + httpRequest.body.user_name,
         branch: branch,
         config: {
           language: 'node_js',
