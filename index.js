@@ -10,8 +10,13 @@ app.get('/', function(request, response) {
 });
 
 app.post("/slack-request", function(request, response) {
-  console.log("Received request from Slack: ", request.body.text);
-  response.send("OK");
+  var cmdPattern = /build ([^ ]+) on branch ([^ ]+)/i;
+  if (request.body.text) {
+    var command = cmdPattern.exec(request.body.text);
+    var repoName = command[1];
+    var branch = command[2]; 
+    response.send("You asked me to build ", repoName, " on branch ", branch);
+  } 
 });
 
 app.listen(app.get('port'), function() {
