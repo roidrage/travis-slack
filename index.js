@@ -12,7 +12,7 @@ app.get('/', function(request, response) {
 });
 
 app.post("/slack-request", function(httpRequest, httpResponse) {
-  var cmdPattern = /build ([^ ]+) on branch ([^ ]+)/i;
+  var cmdPattern = /build ([^ ]+) on ([^ ]+)/i;
   if (httpRequest.body.text) {
     var command = cmdPattern.exec(httpRequest.body.text);
     var repoName = command[1];
@@ -38,7 +38,6 @@ app.post("/slack-request", function(httpRequest, httpResponse) {
       }
     }, function(error, res, body) {
       if (!error && res.statusCode == 202) {
-        console.log(body);
         httpResponse.send("Started build for " + repoName + " on branch " + branch);
       }
     });
