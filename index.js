@@ -15,7 +15,7 @@ app.post("/slack-request", function(request, response) {
     var command = cmdPattern.exec(request.body.text);
     var repoName = command[1];
     var branch = command[2]; 
-    response.send("You asked me to build ", repoName, " on branch ", branch);
+    response.send("You asked me to build " + repoName + " on branch " + branch);
   } 
 });
 
