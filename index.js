@@ -24,7 +24,7 @@ app.post("/slack-request", function(request, response) {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Travis-API-Version': '3',
-        'Authorization': 'token ' + process.env.TRAVIS_API_TOKEN'
+        'Authorization': 'token ' + process.env.TRAVIS_API_TOKEN
       },
       json: true,
       body: {
