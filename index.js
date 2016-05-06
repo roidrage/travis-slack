@@ -13,6 +13,7 @@ app.get('/', function(request, response) {
 
 app.post("/slack-request", function(httpRequest, httpResponse) {
   var cmdPattern = /build ([^ ]+) on branch ([^ ]+)/i;
+  console.log(httpRequest.body.text);
   if (httpRequest.body.text) {
     var command = cmdPattern.exec(httpRequest.body.text);
     var repoName = command[1];
